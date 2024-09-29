@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.OutputCaching;
+using Microsoft.AspNetCore.RateLimiting;
 
 namespace MediatRSample.Controllers
 {
@@ -17,7 +19,10 @@ namespace MediatRSample.Controllers
         {
             _logger = logger;
         }
-
+        [EnableRateLimiting("Fixed")]
+        //[OutputCache]
+        //[OutputCache(Duration = 5)] //Cache for 10 seconds
+        [OutputCache(PolicyName = "CacheForTenSeconds")]
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {

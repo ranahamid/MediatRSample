@@ -20,3 +20,8 @@
 #echo 'Husky.Net is awesome!'
 
 echo 'Welcome to pre-commit git hook with Husky.Net'
+
+echo 'clean project'
+dotnet clean
+echo 'build project'
+dotnet build
