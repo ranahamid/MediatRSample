@@ -91,6 +91,7 @@ builder.Services.AddRequestTimeouts(options =>
     });
 });
 
+
 //Caching
 //builder.Services.AddOutputCache();
 //Caching
