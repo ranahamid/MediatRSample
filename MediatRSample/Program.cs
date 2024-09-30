@@ -16,6 +16,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
+builder.Services.AddSerilog(options =>
+{
+    options.MinimumLevel.Information()
+           .WriteTo.Console(new JsonFormatter(), LogEventLevel.Debug);
+});
 
 // Adding Rate Limiting
 builder.Services.AddRateLimiter(options => {
