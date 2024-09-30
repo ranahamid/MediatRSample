@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
+using BenchmarkDotNet.Running;
 
 namespace MediatRSample.Controllers
 {
@@ -24,7 +25,10 @@ namespace MediatRSample.Controllers
         [EnableRateLimiting("Sliding")]
         public async Task<Customer?> GetCustomer(int id)
         {
-            int waitSeconds = 5;
+            //Benchmarking C# classes
+            var summary = BenchmarkRunner.Run<StringUtilityHelperBenchmark>();
+
+            int waitSeconds = 1;
             await Task.Delay(TimeSpan.FromSeconds(waitSeconds), HttpContext.RequestAborted);
 
             var customer = await _mediator.Send(new GetCustomerRequest { CustomerId = id });
