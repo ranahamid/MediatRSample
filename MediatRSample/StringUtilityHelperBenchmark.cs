@@ -1,4 +1,6 @@
-﻿namespace MediatRSample
+﻿using BenchmarkDotNet.Attributes;
+
+namespace MediatRSample
 {
     public class StringUtilityHelperBenchmark
     {

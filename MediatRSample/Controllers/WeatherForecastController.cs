@@ -1,6 +1,9 @@
+using MediatRSample.Service;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.OutputCaching;
 using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.Extensions.Caching.Hybrid;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace MediatRSample.Controllers
 {
@@ -24,8 +27,10 @@ namespace MediatRSample.Controllers
         //[OutputCache(Duration = 5)] //Cache for 10 seconds
         [OutputCache(PolicyName = "CacheForTenSeconds")]
         [HttpGet(Name = "GetWeatherForecast")]
+        [SwaggerOperation(Tags = new[] { "Customer" })]
         public IEnumerable<WeatherForecast> Get()
-        {
+        { 
+             
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),

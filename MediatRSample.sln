@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRSample", "MediatRSam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRHandler", "MediatRHandler\MediatRHandler.csproj", "{F6B6DD0A-27DA-4619-8FD0-F01087A8875B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatRSample.Tests", "MediatRSample.Tests\MediatRSample.Tests.csproj", "{2513E7C2-0D62-4596-A02E-856AC1624507}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F6B6DD0A-27DA-4619-8FD0-F01087A8875B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6B6DD0A-27DA-4619-8FD0-F01087A8875B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6B6DD0A-27DA-4619-8FD0-F01087A8875B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2513E7C2-0D62-4596-A02E-856AC1624507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2513E7C2-0D62-4596-A02E-856AC1624507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2513E7C2-0D62-4596-A02E-856AC1624507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2513E7C2-0D62-4596-A02E-856AC1624507}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

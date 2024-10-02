@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using BenchmarkDotNet.Running;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace MediatRSample.Controllers
 {
@@ -23,24 +24,25 @@ namespace MediatRSample.Controllers
         //[DisableRequestTimeout]
         [RequestTimeout(milliseconds: 1000)]
         [EnableRateLimiting("Sliding")]
+        [SwaggerOperation(Tags = new[] { "Customer" })]
         public async Task<Customer?> GetCustomer(int id)
         {
             //Benchmarking C# classes
-            var summary = BenchmarkRunner.Run<StringUtilityHelperBenchmark>();
-
-            int waitSeconds = 1;
-            await Task.Delay(TimeSpan.FromSeconds(waitSeconds), HttpContext.RequestAborted);
-
+           // var summary = BenchmarkRunner.Run<StringUtilityHelperBenchmark>();
+            
             var customer = await _mediator.Send(new GetCustomerRequest { CustomerId = id });
             return customer;
         }
         [HttpPost] 
         [RequestTimeout(milliseconds: 1000)]
         [EnableRateLimiting("Token")]
-        public async Task<int> CreateCustomer(/*[FromBody]*/ Customer request)
-        {
-            int waitSeconds = 3;
-            await Task.Delay(TimeSpan.FromSeconds(waitSeconds), HttpContext.RequestAborted);
+        [SwaggerOperation(Tags = new[] { "Customer" })]
+        public async Task<object> CreateCustomer(/*[FromBody]*/ Customer request)
+        { 
+            if(request == null)
+            {
+                throw new System.ArgumentNullException(); 
+            }
             var customerId = await _mediator.Send(new CreateCustomerRequest
             {
                 Customer = request

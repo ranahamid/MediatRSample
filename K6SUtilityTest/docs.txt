@@ -1,0 +1,3 @@
+k6 run .\sample-script.js
+
+https://medium.com/codenx/performance-testing-net-8-api-using-k6-part-1-669783639fa2
