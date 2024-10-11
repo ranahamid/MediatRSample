@@ -9,12 +9,12 @@ namespace MediatRHandler.Repositories
 {
     public  class CustomerRepository: ICustomerRepository
     {
-        public async  Task<int> CreateCustomer(Customer customer)
+        public async  Task<Ulid> CreateCustomer(Customer customer)
         {
-            return 1;
+            return Ulid.NewUlid();
         }
 
-        public async  Task<Customer?> GetCustomer(int customerId)
+        public async  Task<Customer?> GetCustomer(Ulid customerId)
         {
             return new Customer 
             {

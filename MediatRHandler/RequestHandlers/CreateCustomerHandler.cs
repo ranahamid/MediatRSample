@@ -9,14 +9,14 @@ using MediatRHandler.Requests;
 
 namespace MediatRHandler.RequestHandlers
 {
-    public class CreateCustomerHandler:IRequestHandler<CreateCustomerRequest,int>
+    public class CreateCustomerHandler:IRequestHandler<CreateCustomerRequest, Ulid>
     {
         private readonly ICustomerRepository _customerRepository;
         public CreateCustomerHandler(ICustomerRepository customerRepository)
         {
             _customerRepository = customerRepository;
         }
-        public async  Task<int> Handle(CreateCustomerRequest request, CancellationToken cancellationToken)
+        public async  Task<Ulid> Handle(CreateCustomerRequest request, CancellationToken cancellationToken)
         {
             return await _customerRepository.CreateCustomer(request.Customer);
 

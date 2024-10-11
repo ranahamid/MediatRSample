@@ -38,5 +38,11 @@ namespace MediatRSample.Controllers
             Thread.Sleep(500);
             return reverse.ToString();
         }
+        [HttpGet("UlidNumber")]
+        public string UlidNumber()
+        {
+            var newUlid = Ulid.NewUlid();
+            return newUlid.ToString();
+        }
     }
 }

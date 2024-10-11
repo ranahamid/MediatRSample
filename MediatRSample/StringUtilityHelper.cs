@@ -2,6 +2,8 @@
 {
     public class StringUtilityHelper
     {
+    
+
         public string GetLastRowFromCSV(string csvContent)
         {
             if (string.IsNullOrEmpty(csvContent))

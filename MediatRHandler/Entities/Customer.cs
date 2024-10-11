@@ -1,8 +1,12 @@
-﻿namespace MediatRHandler.Entities
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MediatRHandler.Entities
 {
     public class Customer
     {
-        public int Id { get; set; }
+        [Key]
+        public Ulid Id { get; set; } /*= Ulid.NewUlid();*/
+        //  public int Id { get; set; }
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

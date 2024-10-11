@@ -25,7 +25,7 @@ namespace MediatRSample.Controllers
         [RequestTimeout(milliseconds: 1000)]
         [EnableRateLimiting("Sliding")]
         [SwaggerOperation(Tags = new[] { "Customer" })]
-        public async Task<Customer?> GetCustomer(int id)
+        public async Task<Customer?> GetCustomer(Ulid id)
         {
             //Benchmarking C# classes
            // var summary = BenchmarkRunner.Run<StringUtilityHelperBenchmark>();

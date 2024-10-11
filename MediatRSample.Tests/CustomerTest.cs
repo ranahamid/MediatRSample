@@ -25,7 +25,7 @@ namespace MediatRSample.Tests
         public async Task GetCustomer_ReturnsCustomer_WhenCustomerExists()
         {
             // Arrange
-            var customerId = 1;
+            var customerId = Ulid.NewUlid();
             var expectedCustomer = new Customer { Id = customerId, FirstName = "John Doe" };
             _mediatorMock.Setup(m => m.Send(It.IsAny<GetCustomerRequest>(), It.IsAny<CancellationToken>()))
                          .ReturnsAsync(expectedCustomer);
@@ -43,7 +43,7 @@ namespace MediatRSample.Tests
         public async Task GetCustomer_ReturnsNull_WhenCustomerDoesNotExist()
         {
             // Arrange
-            var customerId = 1;
+            var customerId = Ulid.NewUlid();
             _mediatorMock.Setup(m => m.Send(It.IsAny<GetCustomerRequest>(), It.IsAny<CancellationToken>()))
                          .ReturnsAsync((Customer)null);
 
@@ -59,7 +59,7 @@ namespace MediatRSample.Tests
         {
             // Arrange
             var newCustomer = new Customer { FirstName = "Jane Doe" };
-            var expectedCustomerId = 1;
+            var expectedCustomerId = Ulid.NewUlid();
             _mediatorMock.Setup(m => m.Send(It.IsAny<CreateCustomerRequest>(), It.IsAny<CancellationToken>()))
                          .ReturnsAsync(expectedCustomerId);
 

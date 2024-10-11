@@ -9,7 +9,7 @@ namespace MediatRHandler.Repositories
 {
     public interface ICustomerRepository
     {
-        public Task<int> CreateCustomer(Customer customer);
-        public Task<Customer?> GetCustomer(int customerId);
+        public Task<Ulid> CreateCustomer(Customer customer);
+        public Task<Customer?> GetCustomer(Ulid customerId);
     }
 }

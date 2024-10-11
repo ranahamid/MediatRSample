@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MediatRHandler.Requests
 {
-    public class CreateCustomerRequest : IRequest<int>
+    public class CreateCustomerRequest : IRequest<Ulid>
     {
         public Customer Customer { get; set; }
     }
